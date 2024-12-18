@@ -1,0 +1,53 @@
+.outer-container {
+  width: 100vw; /* Ensures the container width matches the viewport width */
+  overflow-x: hidden; /* Enables horizontal scrolling */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.inner-container {
+  background-image: url("/assets/removed.png");
+  background-size: 100% 100%; /* Stretches the image to fit */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image */
+  width: 100vw; /* Content wider than the viewport to allow scrolling */
+  height: 100vh; /* Matches the height of the container */
+}
+@media screen and (max-width: 768px) {
+  .outer-container {
+    overflow-x: scroll; /* Enables horizontal scrolling */
+    width: 150vw; /* Content wider than the viewport to allow scrolling */
+  }
+
+  .inner-container {
+    width: 150vw; /* Content wider than the viewport to allow scrolling */
+  }
+  .hover-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-family: sans-serif;
+    letter-spacing: -4px;
+    -webkit-text-stroke: 2px black;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+    animation: slideUp 0.5s ease-out;
+  }
+  .bgFire {
+    margin-top: 1.5rem;
+  }
+  .bgFire2 {
+    margin-top: 1.5rem;
+  }
+  .snake {
+    margin-top: 3%;
+  }
+}

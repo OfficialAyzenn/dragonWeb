@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import "./page.css";
 function HoverImage() {
   const [hoverText, setHoverText] = useState(""); // State to store the text to show
   const [showSnake, setShowSnake] = useState(false); // State to toggle the PNG visibility for the snake
@@ -20,6 +20,7 @@ function HoverImage() {
       {/* Snake Part */}
       {/* FlexNew GIF (Snake Gif) */}
       <img
+        className="snake"
         src="/assets/FlexNew2.gif"
         alt="Animated GIF"
         style={{
@@ -27,7 +28,7 @@ function HoverImage() {
           top: "49%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "8%",
+          width: "7%",
           cursor: "url(/assets/fire.png), auto",
           borderRadius: "15px",
           transition: "all 0.3s ease-in-out",
@@ -46,6 +47,7 @@ function HoverImage() {
 
       {/* Stroke Snake PNG */}
       <img
+        className="snake"
         src="/assets/strokeSnake.png"
         alt="Stroke Snake PNG"
         style={{
@@ -53,7 +55,7 @@ function HoverImage() {
           top: "49%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "13%",
+          width: "11%",
           borderRadius: "15px",
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
@@ -68,7 +70,7 @@ function HoverImage() {
         alt="Book GIF"
         style={{
           position: "absolute",
-          top: "57%",
+          top: "55.5%",
           left: "27%",
           transform: "translate(-50%, -50%)",
           width: "7%",
@@ -92,7 +94,7 @@ function HoverImage() {
         alt="Book Stroke PNG"
         style={{
           position: "absolute",
-          top: "57%",
+          top: "55.5%",
           left: "27%",
           transform: "translate(-50%, -50%)",
           width: "8%", // Adjust size if needed
@@ -105,6 +107,7 @@ function HoverImage() {
       {/* Fire Part */}
       {/* bgFire GIF */}
       <img
+        className="bgFire"
         src="/assets/bgFire000.gif"
         alt="Fire GIF"
         style={{
@@ -119,6 +122,7 @@ function HoverImage() {
 
       {/* bgFire2 GIF */}
       <img
+        className="bgFire2"
         src="/assets/bgFire000.gif"
         alt="Fire GIF 2"
         style={{
@@ -140,10 +144,10 @@ function HoverImage() {
         alt="Electricity GIF"
         style={{
           position: "absolute",
-          top: "61.5%",
+          top: "60.5%",
           left: "88%",
           transform: "translate(-50%, -50%) rotate(45deg)", // Apply rotation (tilt) with 45-degree angle
-          width: "3%", // Adjust width as necessary
+          width: "2.5%", // Adjust width as necessary
           zIndex: 2,
           pointerEvents: "none", // Ensures no hover interaction
         }}
@@ -179,7 +183,7 @@ function HoverImage() {
         className="crystal-glow"
         style={{
           position: "absolute",
-          top: "18%",
+          top: "20%",
           left: "4.5%",
           width: "100px",
           height: "100px",
@@ -208,7 +212,7 @@ function HoverImage() {
         src="/assets/baloon1.gif"
         style={{
           position: "absolute",
-          top: "0%", // Adjust the position as needed
+          top: "5%", // Adjust the position as needed
           left: "27.5%", // Center horizontally
           transform: "translateX(-50%)", // Center the image
           width: "10.5%", // Adjust the size as needed
@@ -219,7 +223,7 @@ function HoverImage() {
         src="/assets/baloon2.gif"
         style={{
           position: "absolute",
-          top: "0%", // Adjust the position as needed
+          top: "5%", // Adjust the position as needed
           left: "72%", // Center horizontally
           transform: "translateX(-50%)", // Center the image
           width: "11%", // Adjust the size as needed
@@ -266,19 +270,12 @@ function HoverImage() {
 
 export default function Home() {
   return (
-    <div
-      style={{
-        backgroundImage: "url(/assets/removed.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative",
-      }}
-    >
-      <HoverImage />
-    </div>
+    <>
+      <div className="outer-container">
+        <div className="inner-container">
+          <HoverImage />
+        </div>
+      </div>
+    </>
   );
 }
