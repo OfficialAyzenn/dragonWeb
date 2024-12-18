@@ -1,12 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./page.css";
+
 function HoverImage() {
   const [hoverText, setHoverText] = useState(""); // State to store the text to show
   const [showSnake, setShowSnake] = useState(false); // State to toggle the PNG visibility for the snake
   const [showBookStroke, setShowBookStroke] = useState(false); // State to toggle the PNG visibility for the book
+  const [isLoading, setIsLoading] = useState(true); // State for managing the preloader visibility
 
+  // Simulate loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3000); // Set loading time to 3 seconds
+    return () => clearTimeout(timer); // Cleanup timer
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="preloader">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
   return (
     <div
       style={{
