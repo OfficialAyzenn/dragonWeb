@@ -11,7 +11,7 @@ function HoverImage() {
 
   // Simulate loading delay
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000); // Set loading time to 3 seconds
+    const timer = setTimeout(() => setIsLoading(false), 10000); // Set loading time to 3 seconds
     return () => clearTimeout(timer); // Cleanup timer
   }, []);
 
