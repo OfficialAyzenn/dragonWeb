@@ -11,7 +11,7 @@ function HoverImage() {
 
   // Simulate loading delay
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 10000); // Set loading time to 3 seconds
+    const timer = setTimeout(() => setIsLoading(false)); // Set loading time to 3 seconds
     return () => clearTimeout(timer); // Cleanup timer
   }, []);
 
@@ -70,7 +70,7 @@ function HoverImage() {
           top: "49%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "11%",
+          width: "11.4%",
           borderRadius: "15px",
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
@@ -162,7 +162,7 @@ function HoverImage() {
           top: "60.5%",
           left: "88%",
           transform: "translate(-50%, -50%) rotate(45deg)", // Apply rotation (tilt) with 45-degree angle
-          width: "2.5%", // Adjust width as necessary
+          width: "3%", // Adjust width as necessary
           zIndex: 2,
           pointerEvents: "none", // Ensures no hover interaction
         }}
@@ -193,7 +193,7 @@ function HoverImage() {
       </div>
 
       {/* Glow for Snow ball effect */}
-      {/* Glow Effect */}
+      {/* Glow for Snowball effect */}
       <div
         className="crystal-glow"
         style={{
@@ -211,7 +211,22 @@ function HoverImage() {
         }}
         onMouseOver={() => setHoverText("FAQ")}
         onMouseOut={() => setHoverText("")}
-      ></div>
+      />
+
+      {/* Snowball SVG */}
+      <img
+        src="/assets/snowball.gif"
+        alt="Snowball"
+        className="bouncing-image"
+        style={{
+          position: "absolute",
+          top: "20%", // Adjust position vertically
+          left: "4%", // Adjust position horizontally
+          transform: "translate(-50%, -50%)",
+          width: "10%", // Adjust size
+          pointerEvents: "none", // Ensures no hover interaction
+        }}
+      />
 
       {/* Snow Flakes Effect */}
       <div className="snowflake-container">
@@ -223,28 +238,67 @@ function HoverImage() {
       </div>
 
       {/* Baloons GIF */}
+      {/* Right 1 */}
       <img
         src="/assets/baloon1.gif"
         style={{
           position: "absolute",
-          top: "5%", // Adjust the position as needed
+          top: "2%", // Adjust the position as needed
           left: "27.5%", // Center horizontally
           transform: "translateX(-50%)", // Center the image
           width: "10.5%", // Adjust the size as needed
           zIndex: 1, // Ensure it's not on top of other elements
         }}
       />
+      {/* Right 2 */}
       <img
         src="/assets/baloon2.gif"
         style={{
           position: "absolute",
-          top: "5%", // Adjust the position as needed
+          top: "-2%", // Adjust the position as needed
+          left: "22%", // Center horizontally
+          transform: "translateX(-50%)", // Center the image
+          width: "10.5%", // Adjust the size as needed
+          zIndex: 1, // Ensure it's not on top of other elements
+        }}
+      />
+      {/* Left 1 */}
+      <img
+        src="/assets/baloon3.gif"
+        style={{
+          position: "absolute",
+          top: "2%", // Adjust the position as needed
           left: "72%", // Center horizontally
           transform: "translateX(-50%)", // Center the image
           width: "11%", // Adjust the size as needed
           zIndex: 1, // Ensure it's not on top of other elements
         }}
       />
+      {/* Left 2 */}
+      <img
+        src="/assets/baloon4.gif"
+        style={{
+          position: "absolute",
+          top: "-3%", // Adjust the position as needed
+          left: "78%", // Center horizontally
+          transform: "translateX(-50%)", // Center the image
+          width: "11%", // Adjust the size as needed
+          zIndex: 1, // Ensure it's not on top of other elements
+        }}
+      />
+      {/* Bottom Fire */}
+      <img
+        src="/assets/BottomFire.gif"
+        style={{
+          position: "absolute",
+          top: "60%", // Adjust the position as needed
+          left: "5%", // Center horizontally
+          transform: "translateX(-50%)", // Center the image
+          width: "7%", // Adjust the size as needed
+          zIndex: 1, // Ensure it's not on top of other elements
+        }}
+      />
+
       {/* New Div 1 */}
       <div
         style={{

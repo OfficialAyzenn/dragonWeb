@@ -339,3 +339,20 @@ button {
   pointer-events: none;
   animation: slideUp 0.5s ease-out;
 }
+.bouncing-image {
+  transition: transform 0.3s; /* Smooth transition */
+}
+
+.bouncing-image:hover {
+  animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -60%) scale(1.2); /* Move up and enlarge slightly */
+  }
+}
