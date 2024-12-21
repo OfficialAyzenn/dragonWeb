@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import "./page.css";
+import Modal from "./Modal";
 
-function HoverImage() {
+function HoverImage({ setHeading, setText, setIsModalOpen }) {
   const [hoverText, setHoverText] = useState(""); // State to store the text to show
   const [showSnake, setShowSnake] = useState(false); // State to toggle the PNG visibility for the snake
   const [showBookStroke, setShowBookStroke] = useState(false); // State to toggle the PNG visibility for the book
@@ -50,8 +51,18 @@ function HoverImage() {
           zIndex: 2, // Place above the PNG
           opacity: showSnake ? 0 : 1, // Hide GIF when hovered
         }}
+        onClick={() => {
+          setHeading("About Us");
+          setText(
+            `For twelve long years, Snake has coiled in his hidden temple, silently observing the world and awaiting the dawn of the 'Year of the Snake' - a time destined for wisdom, transformation, and unrivalled fortune. Master of patience and strategy, Snake has subtly shaped the tides of the crypto world, aligning the bull run with the Year of the Snake.
+As the embodiment of luck and cunning, Snake has imbued his temple with treasures of enlightenment and wealth. These gifts are now ready to bless those eho seek their fortune in the crypto realm.
+As the temple doors swing open, Snake rises, poised to guide his followers into an era of boundless prosperity. Will you embrace the Snake’s power and claim your fortune, or will you let this once-in-a-lifetime opportunity slip away?`
+          );
+          setIsModalOpen(true); // Show the Modal on click
+        }}
         onMouseOver={() => {
           setHoverText("ABOUT");
+
           setShowSnake(true); // Show the PNG on hover
         }}
         onMouseOut={() => {
@@ -92,6 +103,11 @@ function HoverImage() {
           zIndex: 2, // Place above the PNG
           transition: "all 0.3s ease-in-out",
           opacity: showBookStroke ? 0 : 1, // Hide GIF when hovered
+        }}
+        onClick={() => {
+          setHeading("How to Buy?");
+          setText(`NOT PROVIDED YET`);
+          setIsModalOpen(true); // Show the Modal on click
         }}
         onMouseOver={() => {
           setHoverText("HOW TO BUY");
@@ -147,6 +163,13 @@ function HoverImage() {
           transform: "translate(-50%, -50%)",
           width: "9%",
           zIndex: 1,
+        }}
+        onClick={() => {
+          setHeading("Games");
+          setText(
+            `Play our wide variety of snake-themed Telegram games to earn exclusive rewards. Stay tuned - more games are coming soon.`
+          );
+          setIsModalOpen(true); // Show the Modal on click
         }}
         onMouseOver={() => setHoverText("GAMES")}
         onMouseOut={() => setHoverText("")}
@@ -209,7 +232,29 @@ function HoverImage() {
           transform: "translate(-50%, -50%)",
           zIndex: 2,
         }}
-        onMouseOver={() => setHoverText("FAQ")}
+        onClick={() => {
+          setHeading("FAQs");
+          setText(
+            `What is $SNAKE/,
+$SNAKE is a cryptocurrency token inspired by the wisdom, luck, and cunning of the snake, representing the Year of the Snake in the Chinese zodiac. It’s designed to bring fortune to its holders through a combination of utility, games, and rewards.
+
+/,What Blockchain is $SNAKE on?/,
+$SNAKE is built on the Ethereum blockchain.
+
+/,Is there a Presale?/,
+Detailed instructions are available in the Presale section
+
+/,How do I buy the Presale?/,
+Detailed instructions are available in the How to Buy section
+
+
+/,What makes $SNAKE unique?/,
+$SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed games to exclusive token airdrops, $SNAKE combines community, fun, and utility. It also symbolizes the Year of the Snake, aligning with themes of wisdom and fortune.
+/,`
+          );
+          setIsModalOpen(true); // Show the Modal on click
+        }}
+        onMouseOver={() => setHoverText("FAQs")}
         onMouseOut={() => setHoverText("")}
       />
 
@@ -311,6 +356,11 @@ function HoverImage() {
           zIndex: 2,
           transition: "all 0.3s ease-in-out",
         }}
+        onClick={() => {
+          setHeading("Presale");
+          setText(`NOT PROVIDED YET`);
+          setIsModalOpen(true); // Show the Modal on click
+        }}
         onMouseOver={() => setHoverText("PRESALE")}
         onMouseOut={() => setHoverText("")}
       ></div>
@@ -327,6 +377,11 @@ function HoverImage() {
           zIndex: 2,
           transition: "all 0.3s ease-in-out",
         }}
+        onClick={() => {
+          setHeading("Tokenomics");
+          setText(`NOT PROVIDED YET`);
+          setIsModalOpen(true); // Show the Modal on click
+        }}
         onMouseOver={() => setHoverText("TOKENOMICS")}
         onMouseOut={() => setHoverText("")}
       ></div>
@@ -338,11 +393,24 @@ function HoverImage() {
 }
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [heading, setHeading] = useState(""); // State to store the text to show
+  const [text, setText] = useState(""); // State to store the text to show
   return (
     <>
       <div className="outer-container">
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          Heading={heading}
+          Text={text}
+        />
         <div className="inner-container">
-          <HoverImage />
+          <HoverImage
+            setHeading={setHeading}
+            setText={setText}
+            setIsModalOpen={setIsModalOpen}
+          />
         </div>
       </div>
     </>
