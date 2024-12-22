@@ -393,7 +393,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
 }
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [heading, setHeading] = useState(""); // State to store the text to show
   const [text, setText] = useState(""); // State to store the text to show
   return (
