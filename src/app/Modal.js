@@ -132,6 +132,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    overflow: "auto",
   },
   modal: {
     background: "transparent",

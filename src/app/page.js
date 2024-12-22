@@ -33,6 +33,18 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
         cursor: "url(/assets/fire.png), auto", // Custom cursor
       }}
     >
+      <a className="atag" href="https://twitter.com" target="_blank">
+        <img className="socialimg1" src="/ttw.png" alt="Twitter"></img>
+      </a>
+
+      <a className="atag1" href="https://telegram.com" target="_blank">
+        <img className="socialimg" src="/telegram.png" alt="Twitter"></img>
+      </a>
+
+      <a className="atagdex" href="https://dexscreener.com" target="_blank">
+        <img className="socialimgdex" src="/dex.png" alt="Twitter"></img>
+      </a>
+
       {/* Snake Part */}
       {/* FlexNew GIF (Snake Gif) */}
       <img

@@ -46,8 +46,67 @@
     transform: rotate(360deg);
   }
 }
-
+.atagdex {
+  position: absolute;
+  bottom: 0%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  z-index: 999; /* Place above the PNG */
+}
+.atag {
+  position: absolute;
+  bottom: 0%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  z-index: 999; /* Place above the PNG */
+}
+.atag1 {
+  position: absolute;
+  bottom: 0%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+  z-index: 999; /* Place above the PNG */
+}
+.socialimg {
+  width: 8%;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  z-index: 988; /* Place above the PNG */
+}
+.socialimg1 {
+  width: 8%;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  z-index: 988; /* Place above the PNG */
+}
+.socialimgdex {
+  width: 18%;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  z-index: 988; /* Place above the PNG */
+}
 @media screen and (max-width: 768px) {
+  .atag {
+    bottom: 0%;
+    left: 49%;
+  }
+  .atag1 {
+    bottom: -7px;
+    left: 54%;
+  }
+  .atagdex {
+    bottom: 0%;
+    left: 59%;
+  }
+  .socialimg {
+    width: 17%;
+  }
+  .socialimg1 {
+    width: 13%;
+  }
   .outer-container {
     overflow-x: scroll; /* Enables horizontal scrolling */
     width: 150vw; /* Content wider than the viewport to allow scrolling */
