@@ -62,10 +62,10 @@ const Modal = ({ isOpen, onClose, Heading, Text }) => {
           <img
             src={
               Heading == "How to Buy?"
-                ? "/htb.png"
+                ? "/Snake-Game-6.gif"
                 : Heading == "Tokenomics"
-                ? "/tokenomics.png"
-                : "/games.png"
+                ? "/Snake-Game-5.gif"
+                : "/Snake-Game-4.gif"
             } // Replace with your image path
             alt="Close"
             style={styles.htbimg}

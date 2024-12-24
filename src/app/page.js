@@ -3,11 +3,13 @@
 import { useState, useEffect } from "react";
 import "./page.css";
 import Modal from "./Modal";
+import Lottie from "lottie-react";
 
 function HoverImage({ setHeading, setText, setIsModalOpen }) {
   const [hoverText, setHoverText] = useState(""); // State to store the text to show
   const [showSnake, setShowSnake] = useState(false); // State to toggle the PNG visibility for the snake
   const [showBookStroke, setShowBookStroke] = useState(false); // State to toggle the PNG visibility for the book
+  const [showCrystalStroke, setShowCrystalStroke] = useState(false); // State to toggle the PNG visibility for the book
   const [isLoading, setIsLoading] = useState(true); // State for managing the preloader visibility
 
   // Simulate loading delay
@@ -46,42 +48,49 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
       </a>
 
       {/* Snake Part */}
-      {/* FlexNew GIF (Snake Gif) */}
-      <img
-        className="snake"
-        src="/assets/FlexNew2.gif"
-        alt="Animated GIF"
+      {/* Snake Animation */}
+      <div
         style={{
           position: "absolute",
-          top: "49%",
+          top: "57%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "7%",
+          width: "22%",
           cursor: "url(/assets/fire.png), auto",
           borderRadius: "15px",
           transition: "all 0.3s ease-in-out",
-          zIndex: 2, // Place above the PNG
-          opacity: showSnake ? 0 : 1, // Hide GIF when hovered
+          zIndex: 2, // Place above other elements
+          opacity: showSnake ? 0 : 1, // Hide animation when hovered
         }}
         onClick={() => {
           setHeading("About Us");
           setText(
             `For twelve long years, Snake has coiled in his hidden temple, silently observing the world and awaiting the dawn of the 'Year of the Snake' - a time destined for wisdom, transformation, and unrivalled fortune. Master of patience and strategy, Snake has subtly shaped the tides of the crypto world, aligning the bull run with the Year of the Snake.
-As the embodiment of luck and cunning, Snake has imbued his temple with treasures of enlightenment and wealth. These gifts are now ready to bless those eho seek their fortune in the crypto realm.
+As the embodiment of luck and cunning, Snake has imbued his temple with treasures of enlightenment and wealth. These gifts are now ready to bless those who seek their fortune in the crypto realm.
 As the temple doors swing open, Snake rises, poised to guide his followers into an era of boundless prosperity. Will you embrace the Snake’s power and claim your fortune, or will you let this once-in-a-lifetime opportunity slip away?`
           );
           setIsModalOpen(true); // Show the Modal on click
         }}
         onMouseOver={() => {
           setHoverText("ABOUT");
-
-          setShowSnake(true); // Show the PNG on hover
+          setShowSnake(true); // Hide animation on hover
         }}
         onMouseOut={() => {
           setHoverText("");
-          setShowSnake(false); // Hide the PNG on hover out
+          setShowSnake(false); // Show animation on hover out
         }}
-      />
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/Snake 2.json")} // Path to your JSON animation
+          loop={true}
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "block",
+            borderRadius: "15px", // Apply same border radius as the container
+          }}
+        />
+      </div>
 
       {/* Stroke Snake PNG */}
       <img
@@ -90,31 +99,43 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
         alt="Stroke Snake PNG"
         style={{
           position: "absolute",
-          top: "49%",
+          top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "11.4%",
+          width: "13%",
           borderRadius: "15px",
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
           opacity: showSnake ? 1 : 0, // Show PNG only when hovered
         }}
       />
+      {/* TABLES */}
+      <img
+        className="table"
+        src="/assets/table.png"
+        alt="Table"
+        style={{
+          position: "absolute",
+          top: "67%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "20%",
+          zIndex: 5,
+        }}
+      />
 
       {/* Book Part */}
-      {/* Book GIF */}
-      <img
-        src="/assets/book2.gif"
-        alt="Book GIF"
+      {/* Book Animation */}
+      <div
         style={{
           position: "absolute",
           top: "55.5%",
           left: "27%",
           transform: "translate(-50%, -50%)",
-          width: "7%",
-          zIndex: 2, // Place above the PNG
+          width: "14%",
+          zIndex: 2, // Place above other elements
           transition: "all 0.3s ease-in-out",
-          opacity: showBookStroke ? 0 : 1, // Hide GIF when hovered
+          opacity: showBookStroke ? 0 : 1, // Hide animation when hovered
         }}
         onClick={() => {
           setHeading("How to Buy?");
@@ -123,13 +144,18 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
         }}
         onMouseOver={() => {
           setHoverText("HOW TO BUY");
-          setShowBookStroke(true); // Show the PNG on hover
+          setShowBookStroke(true); // Hide animation on hover
         }}
         onMouseOut={() => {
           setHoverText("");
-          setShowBookStroke(false); // Hide the PNG on hover out
+          setShowBookStroke(false); // Show animation on hover out
         }}
-      />
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/Book.json")}
+          loop={true}
+        />
+      </div>
 
       {/* Book Stroke PNG */}
       <img
@@ -137,10 +163,10 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
         alt="Book Stroke PNG"
         style={{
           position: "absolute",
-          top: "55.5%",
+          top: "53%",
           left: "27%",
           transform: "translate(-50%, -50%)",
-          width: "8%", // Adjust size if needed
+          width: "11%", // Adjust size if needed
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
           opacity: showBookStroke ? 1 : 0, // Show PNG only when hovered
@@ -188,66 +214,45 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
       />
 
       {/* Electricity Part */}
-      {/* Electricity GIF */}
-      <img
-        src="/assets/electricity.gif"
-        alt="Electricity GIF"
+      {/* Electricity Animation */}
+      <div
         style={{
           position: "absolute",
-          top: "60.5%",
+          top: "60%",
           left: "88%",
           transform: "translate(-50%, -50%) rotate(45deg)", // Apply rotation (tilt) with 45-degree angle
-          width: "3%", // Adjust width as necessary
+          width: "6%", // Adjust width as necessary
           zIndex: 2,
           pointerEvents: "none", // Ensures no hover interaction
         }}
-      />
-
-      {/* Smoke and bubbles Part */}
-      {/* Smoke Effect */}
-      <div className="smoke"></div>
-      <img
-        src="/assets/smoke.gif"
-        alt="Smoke GIF"
-        style={{
-          position: "absolute",
-          top: "48%",
-          left: "95.5%",
-          transform: "translate(-50%, -50%)",
-          width: "6%",
-          zIndex: 1,
-          pointerEvents: "none", // Ensures no hover interaction
-        }}
-      />
-
-      {/* Bubbles Effect */}
-      <div className="bubbles">
-        <span></span>
-        <span></span>
-        <span></span>
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/lightning.json")} // Path to your JSON animation
+          loop={true}
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "block",
+          }}
+        />
       </div>
 
-      {/* Glow for Snow ball effect */}
-      {/* Glow for Snowball effect */}
+      {/* Crystal Glow Animation */}
       <div
-        className="crystal-glow"
         style={{
           position: "absolute",
           top: "20%",
           left: "4.5%",
           width: "100px",
           height: "100px",
-          background:
-            "radial-gradient(circle, rgba(173,216,230,0.8), transparent)",
-          borderRadius: "50%",
-          boxShadow: "0 0 20px 10px rgba(0, 191, 255, 0.7)",
           transform: "translate(-50%, -50%)",
           zIndex: 2,
+          opacity: showCrystalStroke ? 0 : 1, // Hide animation on hover
         }}
         onClick={() => {
           setHeading("FAQs");
           setText(
-            `What is $SNAKE/,
+            ` What is $SNAKE/,
 $SNAKE is a cryptocurrency token inspired by the wisdom, luck, and cunning of the snake, representing the Year of the Snake in the Chinese zodiac. It’s designed to bring fortune to its holders through a combination of utility, games, and rewards.
 
 /,What Blockchain is $SNAKE on?/,
@@ -259,39 +264,77 @@ Detailed instructions are available in the Presale section
 /,How do I buy the Presale?/,
 Detailed instructions are available in the How to Buy section
 
-
 /,What makes $SNAKE unique?/,
-$SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed games to exclusive token airdrops, $SNAKE combines community, fun, and utility. It also symbolizes the Year of the Snake, aligning with themes of wisdom and fortune.
-/,`
+$SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed games to exclusive token airdrops, $SNAKE combines community, fun, and utility. It also symbolizes the Year of the Snake, aligning with themes of wisdom and fortune.`
           );
           setIsModalOpen(true); // Show the Modal on click
         }}
-        onMouseOver={() => setHoverText("FAQs")}
-        onMouseOut={() => setHoverText("")}
-      />
+        onMouseOver={() => {
+          setHoverText("FAQ's");
+          setShowCrystalStroke(true); // Show stroke image
+        }}
+        onMouseOut={() => {
+          setHoverText("");
+          setShowCrystalStroke(false); // Hide stroke image
+        }}
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/ice 2.json")}
+          loop={true}
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "block",
+          }}
+        />
+      </div>
 
-      {/* Snowball SVG */}
+      {/* Crystal Stroke PNG */}
       <img
-        src="/assets/snowball.gif"
-        alt="Snowball"
-        className="bouncing-image"
+        src="/assets/crystalStroke.png"
+        alt="Crystal Stroke PNG"
         style={{
           position: "absolute",
-          top: "20%", // Adjust position vertically
-          left: "4%", // Adjust position horizontally
+          top: "20%",
+          left: "4.5%",
           transform: "translate(-50%, -50%)",
-          width: "10%", // Adjust size
-          pointerEvents: "none", // Ensures no hover interaction
+          width: "5.5%", // Adjust size if needed
+
+          zIndex: 1, // Place behind the GIF
+          opacity: showCrystalStroke ? 1 : 0, // Show PNG when hovered
         }}
       />
 
-      {/* Snow Flakes Effect */}
-      <div className="snowflake-container">
-        <div className="snowflake"></div>
-        <div className="snowflake"></div>
-        <div className="snowflake"></div>
-        <div className="snowflake"></div>
-        <div className="snowflake"></div>
+      {/* Bubble Bottles */}
+      <div
+        style={{
+          position: "absolute",
+          top: "58%",
+          left: "3.5%",
+          width: "100px",
+          height: "100px",
+          transform: "translate(-50%, -50%)",
+          zIndex: 2,
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "100%",
+            height: "100%",
+          }}
+        />
+        <Lottie
+          animationData={require("../../public/assets/Json/Liquid.json")} // Path to your JSON animation file
+          loop={true}
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "block",
+          }}
+        />
       </div>
 
       {/* Baloons GIF */}
@@ -397,6 +440,77 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
         onMouseOver={() => setHoverText("TOKENOMICS")}
         onMouseOut={() => setHoverText("")}
       ></div>
+
+      {/* BOX */}
+
+      {/* Crystal Glow Animation */}
+      <div
+        style={{
+          position: "absolute",
+          top: "20%",
+          left: "4.5%",
+          width: "100px",
+          height: "100px",
+          transform: "translate(-50%, -50%)",
+          zIndex: 2,
+          opacity: showCrystalStroke ? 0 : 1, // Hide animation on hover
+        }}
+        onClick={() => {
+          setHeading("FAQs");
+          setText(
+            ` What is $SNAKE/,
+$SNAKE is a cryptocurrency token inspired by the wisdom, luck, and cunning of the snake, representing the Year of the Snake in the Chinese zodiac. It’s designed to bring fortune to its holders through a combination of utility, games, and rewards.
+
+/,What Blockchain is $SNAKE on?/,
+$SNAKE is built on the Ethereum blockchain.
+
+/,Is there a Presale?/,
+Detailed instructions are available in the Presale section
+
+/,How do I buy the Presale?/,
+Detailed instructions are available in the How to Buy section
+
+/,What makes $SNAKE unique?/,
+$SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed games to exclusive token airdrops, $SNAKE combines community, fun, and utility. It also symbolizes the Year of the Snake, aligning with themes of wisdom and fortune.`
+          );
+          setIsModalOpen(true); // Show the Modal on click
+        }}
+        onMouseOver={() => {
+          setHoverText("FAQ's");
+          setShowCrystalStroke(true); // Show stroke image
+        }}
+        onMouseOut={() => {
+          setHoverText("");
+          setShowCrystalStroke(false); // Hide stroke image
+        }}
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/ice 2.json")}
+          loop={true}
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "block",
+          }}
+        />
+      </div>
+
+      {/* Crystal Stroke PNG */}
+      <img
+        src="/assets/crystalStroke.png"
+        alt="Crystal Stroke PNG"
+        style={{
+          position: "absolute",
+          top: "20%",
+          left: "4.5%",
+          transform: "translate(-50%, -50%)",
+          width: "5.5%", // Adjust size if needed
+
+          zIndex: 1, // Place behind the GIF
+          opacity: showCrystalStroke ? 1 : 0, // Show PNG when hovered
+        }}
+      />
+
       {/* Centered Hover Text */}
 
       {hoverText && <div className="hover-text">{hoverText}</div>}
