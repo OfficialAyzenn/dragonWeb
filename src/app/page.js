@@ -306,46 +306,6 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
         />
       </div>
 
-      {/* Fire Part */}
-      {/* bgFire GIF */}
-      <img
-        className="bgFire"
-        src="/assets/bgFire000.gif"
-        alt="Fire GIF"
-        style={{
-          position: "absolute",
-          top: "42%",
-          left: "37%",
-          transform: "translate(-50%, -50%)",
-          width: "9%",
-          zIndex: 1,
-        }}
-      />
-
-      {/* bgFire2 GIF */}
-      <img
-        className="bgFire2"
-        src="/assets/bgFire000.gif"
-        alt="Fire GIF 2"
-        style={{
-          position: "absolute",
-          top: "42%",
-          left: "63.5%",
-          transform: "translate(-50%, -50%)",
-          width: "9%",
-          zIndex: 1,
-        }}
-        onClick={() => {
-          setHeading("Games");
-          setText(
-            `Play our wide variety of snake-themed Telegram games to earn exclusive rewards. Stay tuned - more games are coming soon.`
-          );
-          setIsModalOpen(true); // Show the Modal on click
-        }}
-        onMouseOver={() => setHoverText("GAMES")}
-        onMouseOut={() => setHoverText("")}
-      />
-
       {/* Electricity Part */}
       {/* Electricity Animation */}
       <div
@@ -469,68 +429,6 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           }}
         />
       </div>
-
-      {/* Baloons GIF */}
-      {/* Right 1 */}
-      <img
-        src="/assets/baloon1.gif"
-        style={{
-          position: "absolute",
-          top: "2%", // Adjust the position as needed
-          left: "27.5%", // Center horizontally
-          transform: "translateX(-50%)", // Center the image
-          width: "10.5%", // Adjust the size as needed
-          zIndex: 1, // Ensure it's not on top of other elements
-        }}
-      />
-      {/* Right 2 */}
-      <img
-        src="/assets/baloon2.gif"
-        style={{
-          position: "absolute",
-          top: "-2%", // Adjust the position as needed
-          left: "22%", // Center horizontally
-          transform: "translateX(-50%)", // Center the image
-          width: "10.5%", // Adjust the size as needed
-          zIndex: 1, // Ensure it's not on top of other elements
-        }}
-      />
-      {/* Left 1 */}
-      <img
-        src="/assets/baloon3.gif"
-        style={{
-          position: "absolute",
-          top: "2%", // Adjust the position as needed
-          left: "72%", // Center horizontally
-          transform: "translateX(-50%)", // Center the image
-          width: "11%", // Adjust the size as needed
-          zIndex: 1, // Ensure it's not on top of other elements
-        }}
-      />
-      {/* Left 2 */}
-      <img
-        src="/assets/baloon4.gif"
-        style={{
-          position: "absolute",
-          top: "-3%", // Adjust the position as needed
-          left: "78%", // Center horizontally
-          transform: "translateX(-50%)", // Center the image
-          width: "11%", // Adjust the size as needed
-          zIndex: 1, // Ensure it's not on top of other elements
-        }}
-      />
-      {/* Bottom Fire */}
-      <img
-        src="/assets/BottomFire.gif"
-        style={{
-          position: "absolute",
-          top: "60%", // Adjust the position as needed
-          left: "5%", // Center horizontally
-          transform: "translateX(-50%)", // Center the image
-          width: "7%", // Adjust the size as needed
-          zIndex: 1, // Ensure it's not on top of other elements
-        }}
-      />
 
       {/* New Div 1 */}
       <div
