@@ -11,6 +11,8 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
   const [showBookStroke, setShowBookStroke] = useState(false); // State to toggle the PNG visibility for the book
   const [showCrystalStroke, setShowCrystalStroke] = useState(false); // State to toggle the PNG visibility for the book
   const [isLoading, setIsLoading] = useState(true); // State for managing the preloader visibility
+  const [showBoxStroke, setShowBoxStroke] = useState(false); // State to toggle the PNG visibility for the book
+  const [showGallery, setShowGallery] = useState(false); // State to toggle the PNG visibility for the book
 
   // Simulate loading delay
   useEffect(() => {
@@ -172,6 +174,137 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           opacity: showBookStroke ? 1 : 0, // Show PNG only when hovered
         }}
       />
+
+      <div
+        style={{
+          position: "absolute",
+          top: "81.5%",
+          right: "4%",
+          transform: "translate(-50%, -50%)",
+          width: "17%",
+          zIndex: 3, // Place above other elements
+          transition: "all 0.3s ease-in-out",
+          opacity: showBoxStroke ? 0 : 1, // Hide animation when hovered
+        }}
+        onClick={() => {
+          setHeading("Tokenomics");
+          setText(`NOT PROVIDED YET`);
+          setIsModalOpen(true); // Show the Modal on click
+        }}
+        onMouseOver={() => {
+          setHoverText("TOKENOMICS");
+          setShowBoxStroke(true); // Hide animation on hover
+        }}
+        onMouseOut={() => {
+          setHoverText("");
+          setShowBoxStroke(false); // Show animation on hover out
+        }}
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/Treasure.json")}
+          loop={true}
+        />
+      </div>
+
+      <img
+        src="/assets/sandookStroke.png"
+        alt="Book Stroke PNG"
+        style={{
+          position: "absolute",
+          top: "80.5%",
+          right: "4%",
+          transform: "translate(-50%, -50%)",
+          width: "17%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 1, // Place behind the GIF
+          opacity: showBoxStroke ? 1 : 0, // Show PNG only when hovered
+        }}
+      />
+
+      <div
+        style={{
+          position: "absolute",
+          top: "17.5%",
+          right: "-28%",
+          transform: "translate(-50%, -50%)",
+          width: "80%",
+          zIndex: 3, // Place above other elements
+          transition: "all 0.3s ease-in-out",
+        }}
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/Light.json")}
+          loop={true}
+        />
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          top: "53.0%",
+          right: "-2%",
+          transform: "translate(-50%, -50%)",
+          width: "7%",
+          zIndex: 3, // Place above other elements
+          transition: "all 0.3s ease-in-out",
+        }}
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/Smoke.json")}
+          loop={true}
+        />
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          top: "47.2%",
+          left: "36.7%",
+          transform: "translate(-50%, -50%)",
+          width: "12%",
+          zIndex: 3, // Place above other elements
+          transition: "all 0.3s ease-in-out",
+        }}
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/Fire.json")}
+          loop={true}
+        />
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          top: "47.1%",
+          right: "24.7%",
+          transform: "translate(-50%, -50%)",
+          width: "12%",
+          zIndex: 3, // Place above other elements
+          transition: "all 0.3s ease-in-out",
+        }}
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/Fire.json")}
+          loop={true}
+        />
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          top: "72.3%",
+          left: "5.1%",
+          transform: "translate(-50%, -50%)",
+          width: "10.5%",
+          zIndex: 3, // Place above other elements
+          transition: "all 0.3s ease-in-out",
+        }}
+      >
+        <Lottie
+          animationData={require("../../public/assets/Json/Fire_ball.json")}
+          loop={true}
+        />
+      </div>
 
       {/* Fire Part */}
       {/* bgFire GIF */}
@@ -403,12 +536,13 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
       <div
         style={{
           position: "absolute",
-          top: "65%",
-          left: "40%",
-          width: "20%",
-          height: "10%",
+          top: "30%",
+          left: "64%",
+          width: "10%",
+          height: "35%",
           borderRadius: "10px",
-          zIndex: 2,
+
+          zIndex: 5,
           transition: "all 0.3s ease-in-out",
         }}
         onClick={() => {
@@ -416,10 +550,28 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           setText(`NOT PROVIDED YET`);
           setIsModalOpen(true); // Show the Modal on click
         }}
-        onMouseOver={() => setHoverText("PRESALE")}
-        onMouseOut={() => setHoverText("")}
+        onMouseOver={() => {
+          setHoverText("PRESALE");
+          setShowGallery(true); //
+        }}
+        onMouseOut={() => {
+          setHoverText("");
+          setShowGallery(false);
+        }}
       ></div>
-
+      <img
+        src="/assets/gallery.png"
+        style={{
+          position: "absolute",
+          top: "30%",
+          left: "68.5%",
+          opacity: showGallery ? 1 : 0, // Show PNG when hovered
+          height: "30%",
+          transform: "translateX(-50%)", // Center the image
+          width: "9%", // Adjust the size as needed
+          zIndex: 1, // Ensure it's not on top of other elements
+        }}
+      />
       {/* New Div 2 */}
       <div
         style={{
