@@ -71,7 +71,7 @@ const Modal = ({ isOpen, onClose, Heading, Text }) => {
             style={styles.htbimg}
             onClick={onClose}
           />
-
+          
           <h1>{Heading}</h1>
           <hr />
 
