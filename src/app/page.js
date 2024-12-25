@@ -15,10 +15,11 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
   const [isLoading, setIsLoading] = useState(true); // State for managing the preloader visibility
   const [showBoxStroke, setShowBoxStroke] = useState(false); // State to toggle the PNG visibility for the book
   const [showGallery, setShowGallery] = useState(false); // State to toggle the PNG visibility for the book
-  const [width, setWidth] = useState(window.innerWidth); // Initialize state with current window width
-  const [snakestroke,setsnakestroke]=useState(false);
-  const [scrollstroke,setscrollstroke] = useState(false)
+  const [width, setWidth] = useState(null); // Initialize state with current window width
+  const [snakestroke, setsnakestroke] = useState(false);
+  const [scrollstroke, setscrollstroke] = useState(false);
   useEffect(() => {
+    setWidth(window.innerWidth);
     const handleResize = () => {
       setWidth(window.innerWidth); // Update width state when window is resized
     };
@@ -188,7 +189,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint/>
+        <BlinkingPoint />
       </div>
       <div
         style={{
@@ -203,7 +204,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint/>
+        <BlinkingPoint />
       </div>
       <div
         style={{
@@ -218,12 +219,12 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint/>
+        <BlinkingPoint />
       </div>
       <div
         style={{
           position: "absolute",
-         top: "73%",
+          top: "73%",
           left: "83%",
           transform: "translate(-50%, -50%)",
           width: "8%", // Adjust size if needed
@@ -233,12 +234,12 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint/>
+        <BlinkingPoint />
       </div>
       <div
         style={{
           position: "absolute",
-         top: "43%",
+          top: "43%",
           left: "83%",
           transform: "translate(-50%, -50%)",
           width: "8%", // Adjust size if needed
@@ -248,12 +249,12 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint/>
+        <BlinkingPoint />
       </div>
       <div
         style={{
           position: "absolute",
-         top: "43%",
+          top: "43%",
           left: "72%",
           transform: "translate(-50%, -50%)",
           width: "8%", // Adjust size if needed
@@ -263,7 +264,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint/>
+        <BlinkingPoint />
       </div>
       <div
         style={{
@@ -278,7 +279,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <GlowingEffect/>
+        <GlowingEffect />
       </div>
       <div
         style={{
@@ -308,9 +309,8 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <GlowingEffect  color= {'250, 235, 105'}/>
+        <GlowingEffect color={"250, 235, 105"} />
       </div>
-
 
       {/* Book Stroke PNG */}
       <img
@@ -358,7 +358,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           loop={true}
         />
       </div>
-     
+
       <img
         src="/assets/sandookStroke.png"
         alt="Book Stroke PNG"
@@ -373,8 +373,16 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           opacity: showBoxStroke ? 1 : 1, // Show PNG only when hovered
         }}
       />
-      <div style={{height:'30%',width:'30%',position:'absolute',top:"75%",left:'34%',zIndex:5}}
-         onMouseOver={() => {
+      <div
+        style={{
+          height: "30%",
+          width: "30%",
+          position: "absolute",
+          top: "75%",
+          left: "34%",
+          zIndex: 5,
+        }}
+        onMouseOver={() => {
           setHoverText("GAMES");
           setsnakestroke(true); // Hide animation on hover
         }}
@@ -394,15 +402,21 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           width: "22%", // Adjust size if needed
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
-          height:'31%',
+          height: "31%",
           opacity: snakestroke ? 1 : 0, // Show PNG only when hovered
         }}
-        
-       
       />
-      
-      <div style={{height:'45%',width:'12%',position:'absolute',top:"20%",left:'74%',zIndex:9}}
-         onMouseOver={() => {
+
+      <div
+        style={{
+          height: "45%",
+          width: "12%",
+          position: "absolute",
+          top: "20%",
+          left: "74%",
+          zIndex: 9,
+        }}
+        onMouseOver={() => {
           setHoverText("FAQ's");
           setscrollstroke(true); // Hide animation on hover
         }}
@@ -411,7 +425,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           setscrollstroke(false); // Show animation on hover out
         }}
       ></div>
-        <img
+      <img
         src="/assets/Scroll.png"
         alt="Crystal Stroke PNG"
         style={{
@@ -422,18 +436,12 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           width: "8.1%", // Adjust size if needed
           transition: "all 0.3s ease-in-out",
           zIndex: 0, // Place behind the GIF,
-          height:'64.9%',
-          opacity: scrollstroke ? 1 : 0, 
-
-         
+          height: "64.9%",
+          opacity: scrollstroke ? 1 : 0,
         }}
         // onMouseOver={()=> {setHoverText("GAMES");}}
         // onMouseOut={()=> {setHoverText("")}}
-       
       />
-     
-
-    
 
       <div
         style={{
@@ -442,7 +450,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           right: width <= 768 ? "-35%" : "-18%",
           transform: "translate(-50%, -50%)",
           width: width <= 768 ? "80%" : "70%",
-          
+
           zIndex: 3,
           transition: "all 0.3s ease-in-out",
         }}

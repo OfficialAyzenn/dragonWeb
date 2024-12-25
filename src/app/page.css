@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow-y: hidden;
 }
 
 .inner-container {
@@ -95,12 +96,12 @@
     bottom: 7%;
     left: 49vw; /* Adjust left based on viewport width */
   }
-  
+
   .atag1 {
     bottom: 6%;
     left: 54vw; /* Adjust left based on viewport width */
   }
-  
+
   .atagdex {
     bottom: 7%;
     left: 59vw; /* Adjust left based on viewport width */
@@ -184,13 +185,13 @@
 }
 
 .responsive-book-stroke {
-  width: 11%;  /* Default width for larger screens */
+  width: 11%; /* Default width for larger screens */
   position: absolute;
   top: 53%;
   left: 27%;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease-in-out;
-  z-index: 1;  /* Place behind the GIF */
+  z-index: 1; /* Place behind the GIF */
   opacity: 1;
 }
 
@@ -200,5 +201,3 @@
     width: 22%; /* Adjust width to 22% for smaller screens */
   }
 }
-
-
