@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import "./page.css";
 import Modal from "./Modal";
 import Lottie from "lottie-react";
+import BlinkingPoint from "./Blink";
+import GlowingEffect from "./GlowingEffect";
 
 function HoverImage({ setHeading, setText, setIsModalOpen }) {
   const [hoverText, setHoverText] = useState(""); // State to store the text to show
@@ -13,6 +15,20 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
   const [isLoading, setIsLoading] = useState(true); // State for managing the preloader visibility
   const [showBoxStroke, setShowBoxStroke] = useState(false); // State to toggle the PNG visibility for the book
   const [showGallery, setShowGallery] = useState(false); // State to toggle the PNG visibility for the book
+  const [width, setWidth] = useState(window.innerWidth); // Initialize state with current window width
+  const [snakestroke,setsnakestroke]=useState(false);
+  const [scrollstroke,setscrollstroke] = useState(false)
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth); // Update width state when window is resized
+    };
+
+    window.addEventListener("resize", handleResize); // Add event listener for window resizing
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Cleanup listener on component unmount
+    };
+  }, []);
 
   // Simulate loading delay
   useEffect(() => {
@@ -121,7 +137,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "67%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "20%",
+          width: width <= 768 ? "0%" : "20%",
           zIndex: 5,
         }}
       />
@@ -129,13 +145,14 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
       {/* Book Part */}
       {/* Book Animation */}
       <div
+        className="responsive-div-book"
         style={{
           position: "absolute",
           top: "55.5%",
           left: "27%",
           transform: "translate(-50%, -50%)",
-          width: "14%",
-          zIndex: 2, // Place above other elements
+          width: width <= 768 ? "21%" : "14%",
+          zIndex: 7, // Place above other elements
           transition: "all 0.3s ease-in-out",
           opacity: showBookStroke ? 0 : 1, // Hide animation when hovered
         }}
@@ -158,6 +175,142 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           loop={true}
         />
       </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "55%",
+          left: "30%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 10, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <BlinkingPoint/>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "85%",
+          left: "55%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 10, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <BlinkingPoint/>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "56%",
+          left: "54%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 10, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <BlinkingPoint/>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+         top: "73%",
+          left: "83%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 10, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <BlinkingPoint/>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+         top: "43%",
+          left: "83%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 10, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <BlinkingPoint/>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+         top: "43%",
+          left: "72%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 10, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <BlinkingPoint/>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "55%",
+          left: "31.5%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 1, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <GlowingEffect/>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "20%",
+          left: "8%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 1, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <GlowingEffect />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "70%",
+          left: "9%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 1, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <GlowingEffect  color= {'250, 235, 105'}/>
+      </div>
+
 
       {/* Book Stroke PNG */}
       <img
@@ -205,7 +358,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           loop={true}
         />
       </div>
-
+     
       <img
         src="/assets/sandookStroke.png"
         alt="Book Stroke PNG"
@@ -217,18 +370,80 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           width: "17%", // Adjust size if needed
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
-          opacity: showBoxStroke ? 1 : 0, // Show PNG only when hovered
+          opacity: showBoxStroke ? 1 : 1, // Show PNG only when hovered
         }}
       />
+      <div style={{height:'30%',width:'30%',position:'absolute',top:"75%",left:'34%',zIndex:5}}
+         onMouseOver={() => {
+          setHoverText("GAMES");
+          setsnakestroke(true); // Hide animation on hover
+        }}
+        onMouseOut={() => {
+          setHoverText("");
+          setsnakestroke(false); // Show animation on hover out
+        }}
+      ></div>
+      <img
+        src="/assets/BlackSnake.png"
+        alt="Crystal Stroke PNG"
+        style={{
+          position: "absolute",
+          top: "86.2%",
+          right: "28%",
+          transform: "translate(-50%, -50%)",
+          width: "22%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 1, // Place behind the GIF
+          height:'31%',
+          opacity: snakestroke ? 1 : 0, // Show PNG only when hovered
+        }}
+        
+       
+      />
+      
+      <div style={{height:'45%',width:'12%',position:'absolute',top:"20%",left:'74%',zIndex:9}}
+         onMouseOver={() => {
+          setHoverText("FAQ's");
+          setscrollstroke(true); // Hide animation on hover
+        }}
+        onMouseOut={() => {
+          setHoverText("");
+          setscrollstroke(false); // Show animation on hover out
+        }}
+      ></div>
+        <img
+        src="/assets/Scroll.png"
+        alt="Crystal Stroke PNG"
+        style={{
+          position: "absolute",
+          top: "47.2%",
+          right: "12.5%",
+          transform: "translate(-50%, -50%)",
+          width: "8.1%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 0, // Place behind the GIF,
+          height:'64.9%',
+          opacity: scrollstroke ? 1 : 0, 
+
+         
+        }}
+        // onMouseOver={()=> {setHoverText("GAMES");}}
+        // onMouseOut={()=> {setHoverText("")}}
+       
+      />
+     
+
+    
 
       <div
         style={{
           position: "absolute",
-          top: "17.5%",
-          right: "-28%",
+          top: width <= 768 ? "5.7%" : "15%",
+          right: width <= 768 ? "-35%" : "-18%",
           transform: "translate(-50%, -50%)",
-          width: "80%",
-          zIndex: 3, // Place above other elements
+          width: width <= 768 ? "80%" : "70%",
+          
+          zIndex: 3,
           transition: "all 0.3s ease-in-out",
         }}
       >
@@ -292,7 +507,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
       <div
         style={{
           position: "absolute",
-          top: "72.3%",
+          top: "70.2%",
           left: "5.1%",
           transform: "translate(-50%, -50%)",
           width: "10.5%",
@@ -314,7 +529,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "60%",
           left: "88%",
           transform: "translate(-50%, -50%) rotate(45deg)", // Apply rotation (tilt) with 45-degree angle
-          width: "6%", // Adjust width as necessary
+          width: width <= 768 ? "12%" : "6.8%",
           zIndex: 2,
           pointerEvents: "none", // Ensures no hover interaction
         }}
@@ -331,56 +546,6 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
       </div>
 
       {/* Crystal Glow Animation */}
-      <div
-        style={{
-          position: "absolute",
-          top: "20%",
-          left: "4.5%",
-          width: "100px",
-          height: "100px",
-          transform: "translate(-50%, -50%)",
-          zIndex: 2,
-          opacity: showCrystalStroke ? 0 : 1, // Hide animation on hover
-        }}
-        onClick={() => {
-          setHeading("FAQs");
-          setText(
-            ` What is $SNAKE/,
-$SNAKE is a cryptocurrency token inspired by the wisdom, luck, and cunning of the snake, representing the Year of the Snake in the Chinese zodiac. It’s designed to bring fortune to its holders through a combination of utility, games, and rewards.
-
-/,What Blockchain is $SNAKE on?/,
-$SNAKE is built on the Ethereum blockchain.
-
-/,Is there a Presale?/,
-Detailed instructions are available in the Presale section
-
-/,How do I buy the Presale?/,
-Detailed instructions are available in the How to Buy section
-
-/,What makes $SNAKE unique?/,
-$SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed games to exclusive token airdrops, $SNAKE combines community, fun, and utility. It also symbolizes the Year of the Snake, aligning with themes of wisdom and fortune.`
-          );
-          setIsModalOpen(true); // Show the Modal on click
-        }}
-        onMouseOver={() => {
-          setHoverText("FAQ's");
-          setShowCrystalStroke(true); // Show stroke image
-        }}
-        onMouseOut={() => {
-          setHoverText("");
-          setShowCrystalStroke(false); // Hide stroke image
-        }}
-      >
-        <Lottie
-          animationData={require("../../public/assets/Json/ice 2.json")}
-          loop={true}
-          style={{
-            width: "100%",
-            height: "100%",
-            display: "block",
-          }}
-        />
-      </div>
 
       {/* Crystal Stroke PNG */}
       <img
@@ -402,10 +567,10 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
       <div
         style={{
           position: "absolute",
-          top: "58%",
-          left: "3.5%",
+          top: "57.2%",
+          left: "3.7%",
           width: "100px",
-          height: "100px",
+          height: "105px",
           transform: "translate(-50%, -50%)",
           zIndex: 2,
         }}
@@ -493,16 +658,15 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
 
       {/* BOX */}
 
-      {/* Crystal Glow Animation */}
       <div
         style={{
           position: "absolute",
           top: "20%",
           left: "4.5%",
-          width: "100px",
-          height: "100px",
+          width: width <= 768 ? "130px" : "140px",
+          height: width <= 768 ? "130px" : "140px",
           transform: "translate(-50%, -50%)",
-          zIndex: 2,
+          zIndex: 1,
           opacity: showCrystalStroke ? 0 : 1, // Hide animation on hover
         }}
         onClick={() => {
@@ -525,14 +689,14 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           );
           setIsModalOpen(true); // Show the Modal on click
         }}
-        onMouseOver={() => {
-          setHoverText("FAQ's");
-          setShowCrystalStroke(true); // Show stroke image
-        }}
-        onMouseOut={() => {
-          setHoverText("");
-          setShowCrystalStroke(false); // Hide stroke image
-        }}
+        // onMouseOver={() => {
+        //   setHoverText("FAQ's");
+        //   setShowCrystalStroke(true); // Show stroke image
+        // }}
+        // onMouseOut={() => {
+        //   setHoverText("");
+        //   setShowCrystalStroke(false); // Hide stroke image
+        // }}
       >
         <Lottie
           animationData={require("../../public/assets/Json/ice 2.json")}
@@ -563,11 +727,89 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
 
       {/* Centered Hover Text */}
 
-      {hoverText && <div className="hover-text">{hoverText}</div>}
+      {hoverText === "ABOUT" && (
+        <div className="hover-text">
+          {" "}
+          <img
+            src="/assets/t1.png"
+            style={{
+              width: "100%", // Make sure the image fits inside the div
+              height: "100%",
+              objectFit: "cover", // Ensures the image is contained inside the div
+            }}
+          />
+        </div>
+      )}
+      {hoverText === "PRESALE" && (
+        <div className="hover-text">
+          {" "}
+          <img
+            src="/assets/t2.png"
+            style={{
+              width: "100%", // Make sure the image fits inside the div
+              height: "100%",
+              objectFit: "cover", // Ensures the image is contained inside the div
+            }}
+          />
+        </div>
+      )}
+      {hoverText === "FAQ's" && (
+        <div className="hover-text">
+          {" "}
+          <img
+            src="/assets/t3.png"
+            style={{
+              width: "100%", // Make sure the image fits inside the div
+              height: "100%",
+              objectFit: "cover", // Ensures the image is contained inside the div
+            }}
+          />
+        </div>
+      )}
+      {hoverText === "TOKENOMICS" && (
+        <div className="hover-text">
+          {" "}
+          <img
+            src="/assets/t4.png"
+            style={{
+              width: "100%", // Make sure the image fits inside the div
+              height: "100%",
+              objectFit: "cover", // Ensures the image is contained inside the div
+            }}
+          />
+        </div>
+      )}
+      {hoverText === "HOW TO BUY" && (
+        <div className="hover-text">
+          {" "}
+          <img
+            src="/assets/t5.png"
+            style={{
+              width: "100%", // Make sure the image fits inside the div
+              height: "100%",
+              objectFit: "cover", // Ensures the image is contained inside the div
+            }}
+          />
+        </div>
+      )}
+      {hoverText === "GAMES" && (
+        <div className="hover-text">
+          {" "}
+          <img
+            src="/assets/t6.png"
+            style={{
+              width: "100%", // Make sure the image fits inside the div
+              height: "100%",
+              objectFit: "cover", // Ensures the image is contained inside the div
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 }
-
+//PRESALE
+//FAQ's TOKENOMICS
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [heading, setHeading] = useState(""); // State to store the text to show

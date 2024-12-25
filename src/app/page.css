@@ -49,21 +49,23 @@
 .atagdex {
   position: absolute;
   bottom: 0%;
-  left: 22%;
+  left: 22vw; /* Use viewport width for better scaling */
   transform: translate(-50%, -50%);
   z-index: 999; /* Place above the PNG */
 }
+
 .atag {
   position: absolute;
   bottom: 0%;
-  left: 25%;
+  left: 25vw; /* Use viewport width for better scaling */
   transform: translate(-50%, -50%);
   z-index: 999; /* Place above the PNG */
 }
+
 .atag1 {
   position: absolute;
   bottom: 0%;
-  left: 28%;
+  left: 28vw; /* Use viewport width for better scaling */
   transform: translate(-50%, -50%);
   z-index: 999; /* Place above the PNG */
 }
@@ -91,15 +93,17 @@
 @media screen and (max-width: 768px) {
   .atag {
     bottom: 7%;
-    left: 49%;
+    left: 49vw; /* Adjust left based on viewport width */
   }
+  
   .atag1 {
     bottom: 6%;
-    left: 54%;
+    left: 54vw; /* Adjust left based on viewport width */
   }
+  
   .atagdex {
     bottom: 7%;
-    left: 59%;
+    left: 59vw; /* Adjust left based on viewport width */
   }
   .socialimg {
     width: 17%;
@@ -141,3 +145,60 @@
     margin-top: 3%;
   }
 }
+
+.responsive-div {
+  width: 22%;
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: url(/assets/fire.png), auto;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+  opacity: 1;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .responsive-div {
+    width: 22%; /* Adjust width to 35% for smaller screens */
+  }
+}
+.responsive-div-book {
+  width: 14%;
+  position: absolute;
+  top: 55.5%;
+  left: 27%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .responsive-div-book {
+    width: 19%; /* Adjust width to 22% for smaller screens */
+  }
+}
+
+.responsive-book-stroke {
+  width: 11%;  /* Default width for larger screens */
+  position: absolute;
+  top: 53%;
+  left: 27%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+  z-index: 1;  /* Place behind the GIF */
+  opacity: 1;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .responsive-book-stroke {
+    width: 22%; /* Adjust width to 22% for smaller screens */
+  }
+}
+
+
