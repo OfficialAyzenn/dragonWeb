@@ -17,7 +17,7 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
   const [width, setWidth] = useState(null); // Initialize state with current window width
   const [snakestroke, setsnakestroke] = useState(false);
   const [scrollstroke, setscrollstroke] = useState(false);
-  const [BlackSnakeReturnStroke,setBlackSnakeStrokeReturn] = useState(false)
+  const [BlackSnakeReturnStroke, setBlackSnakeStrokeReturn] = useState(false);
   useEffect(() => {
     setWidth(window.innerWidth);
     const handleResize = () => {
@@ -189,7 +189,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint  color="yellow"/>
+        <BlinkingPoint color="yellow" />
       </div>
       {/* ALMARI */}
       <div
@@ -205,7 +205,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint color="green"/>
+        <BlinkingPoint color="green" />
       </div>
       <div
         style={{
@@ -235,7 +235,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint  color="black"/>
+        <BlinkingPoint color="black" />
       </div>
       <div
         style={{
@@ -250,7 +250,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint  color="#07198f"/>
+        <BlinkingPoint color="#07198f" />
       </div>
 
       <div
@@ -405,11 +405,11 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
         style={{
           position: "absolute",
           top: "49%",
-          left: "14%",
+          left: "17%",
           transform: "translate(-50%, -50%)",
-          width: "15.5%", // Adjust size if needed
+          width: "13%", // Adjust size if needed
           transition: "all 0.3s ease-in-out",
-          height: "77%",
+          height: "57%",
           opacity: snakestroke ? 1 : 0, // Show PNG only when hovered
         }}
       />
@@ -455,8 +455,16 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           loop={true}
         />
       </div>
-      <div style={{ position:'absolute', height:'20.5%',width:'20%',top:'77%',left:'40%',zIndex:13}}
-      onClick={() => {
+      <div
+        style={{
+          position: "absolute",
+          height: "20.5%",
+          width: "20%",
+          top: "77%",
+          left: "40%",
+          zIndex: 13,
+        }}
+        onClick={() => {
           setHeading("Games");
           setText(`NOT PROVIDED YET`);
           setIsModalOpen(true); // Show the Modal on click
@@ -480,11 +488,9 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           transform: "translate(-50%, -50%)",
           width: "21.9%", // Adjust size if needed
           transition: "all 0.3s ease-in-out",
-          height: "36%",
+          height: "34%",
           opacity: BlackSnakeReturnStroke ? 1 : 0, // Show PNG only when hovered
-          zIndex:11,
-
-          
+          zIndex: 11,
         }}
       />
 
