@@ -17,6 +17,7 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
   const [width, setWidth] = useState(null); // Initialize state with current window width
   const [snakestroke, setsnakestroke] = useState(false);
   const [scrollstroke, setscrollstroke] = useState(false);
+  const [BlackSnakeReturnStroke,setBlackSnakeStrokeReturn] = useState(false)
   useEffect(() => {
     setWidth(window.innerWidth);
     const handleResize = () => {
@@ -188,7 +189,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint />
+        <BlinkingPoint  color="yellow"/>
       </div>
       {/* ALMARI */}
       <div
@@ -204,7 +205,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint />
+        <BlinkingPoint color="green"/>
       </div>
       <div
         style={{
@@ -224,6 +225,21 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
       <div
         style={{
           position: "absolute",
+          top: "68%",
+          left: "54%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 10, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <BlinkingPoint  color="black"/>
+      </div>
+      <div
+        style={{
+          position: "absolute",
           top: "73%",
           left: "83%",
           transform: "translate(-50%, -50%)",
@@ -234,7 +250,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           pointerEvents: "none",
         }}
       >
-        <BlinkingPoint />
+        <BlinkingPoint  color="#07198f"/>
       </div>
 
       <div
@@ -355,7 +371,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           zIndex: 1,
         }}
         onMouseOver={() => {
-          setHoverText("GAMES");
+          setHoverText("FAQ's");
           setsnakestroke(true); // Hide animation on hover
         }}
         onMouseOut={() => {
@@ -363,8 +379,23 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           setsnakestroke(false); // Show animation on hover out
         }}
         onClick={() => {
-          setHeading("Games");
-          setText(`NOT PROVIDED YET`);
+          setHeading("FAQs");
+          setText(
+            ` What is $SNAKE/,
+$SNAKE is a cryptocurrency token inspired by the wisdom, luck, and cunning of the snake, representing the Year of the Snake in the Chinese zodiac. It’s designed to bring fortune to its holders through a combination of utility, games, and rewards.
+
+/,What Blockchain is $SNAKE on?/,
+$SNAKE is built on the Ethereum blockchain.
+
+/,Is there a Presale?/,
+Detailed instructions are available in the Presale section
+
+/,How do I buy the Presale?/,
+Detailed instructions are available in the How to Buy section
+
+/,What makes $SNAKE unique?/,
+$SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed games to exclusive token airdrops, $SNAKE combines community, fun, and utility. It also symbolizes the Year of the Snake, aligning with themes of wisdom and fortune.`
+          );
           setIsModalOpen(true); // Show the Modal on click
         }}
       ></div>
@@ -392,33 +423,18 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           left: "40%",
           zIndex: 9,
         }}
+        onClick={() => {
+          setHeading("Presale");
+          setText(`NOT PROVIDED YET`);
+          setIsModalOpen(true); // Show the Modal on click
+        }}
         onMouseOver={() => {
-          setHoverText("FAQ's");
-          setscrollstroke(true); // Hide animation on hover
+          setHoverText("PRESALE");
+          setShowGallery(true); //
         }}
         onMouseOut={() => {
           setHoverText("");
-          setscrollstroke(false); // Show animation on hover out
-        }}
-        onClick={() => {
-          setHeading("FAQs");
-          setText(
-            ` What is $SNAKE/,
-$SNAKE is a cryptocurrency token inspired by the wisdom, luck, and cunning of the snake, representing the Year of the Snake in the Chinese zodiac. It’s designed to bring fortune to its holders through a combination of utility, games, and rewards.
-
-/,What Blockchain is $SNAKE on?/,
-$SNAKE is built on the Ethereum blockchain.
-
-/,Is there a Presale?/,
-Detailed instructions are available in the Presale section
-
-/,How do I buy the Presale?/,
-Detailed instructions are available in the How to Buy section
-
-/,What makes $SNAKE unique?/,
-$SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed games to exclusive token airdrops, $SNAKE combines community, fun, and utility. It also symbolizes the Year of the Snake, aligning with themes of wisdom and fortune.`
-          );
-          setIsModalOpen(true); // Show the Modal on click
+          setShowGallery(false);
         }}
       ></div>
 
@@ -439,6 +455,38 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           loop={true}
         />
       </div>
+      <div style={{ position:'absolute', height:'20.5%',width:'20%',top:'77%',left:'40%',zIndex:13}}
+      onClick={() => {
+          setHeading("Games");
+          setText(`NOT PROVIDED YET`);
+          setIsModalOpen(true); // Show the Modal on click
+        }}
+        onMouseOver={() => {
+          setHoverText("GAMES");
+          setBlackSnakeStrokeReturn(true); //
+        }}
+        onMouseOut={() => {
+          setHoverText("");
+          setBlackSnakeStrokeReturn(false);
+        }}
+      ></div>
+      <img
+        src="/assets/BlackSnake2.png"
+        alt="Almari PNG"
+        style={{
+          position: "absolute",
+          top: "86.2%",
+          left: "50.1%",
+          transform: "translate(-50%, -50%)",
+          width: "21.9%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          height: "36%",
+          opacity: BlackSnakeReturnStroke ? 1 : 0, // Show PNG only when hovered
+          zIndex:11,
+
+          
+        }}
+      />
 
       <div
         style={{
@@ -577,19 +625,19 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           zIndex: 5,
           transition: "all 0.3s ease-in-out",
         }}
-        onClick={() => {
-          setHeading("Presale");
-          setText(`NOT PROVIDED YET`);
-          setIsModalOpen(true); // Show the Modal on click
-        }}
-        onMouseOver={() => {
-          setHoverText("PRESALE");
-          setShowGallery(true); //
-        }}
-        onMouseOut={() => {
-          setHoverText("");
-          setShowGallery(false);
-        }}
+        // onClick={() => {
+        //   setHeading("Presale");
+        //   setText(`NOT PROVIDED YET`);
+        //   setIsModalOpen(true); // Show the Modal on click
+        // }}
+        // onMouseOver={() => {
+        //   setHoverText("PRESALE");
+        //   setShowGallery(true); //
+        // }}
+        // onMouseOut={() => {
+        //   setHoverText("");
+        //   setShowGallery(false);
+        // }}
       ></div>
       <img
         src="/assets/gallery.png"
@@ -597,7 +645,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           position: "absolute",
           top: "30%",
           left: "68.5%",
-          opacity: showGallery ? 1 : 0, // Show PNG when hovered
+          opacity: showGallery ? 0 : 0, // Show PNG when hovered
           height: "30%",
           transform: "translateX(-50%)", // Center the image
           width: "9%", // Adjust the size as needed

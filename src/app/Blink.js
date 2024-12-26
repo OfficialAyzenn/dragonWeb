@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-const BlinkingPoint = ({ x, y }) => {
+const BlinkingPoint = ({ x, y,color="white" }) => {
   const styles = {
     blinkingPoint: {
       position: "absolute",
@@ -8,7 +8,7 @@ const BlinkingPoint = ({ x, y }) => {
       left: `${x}px`, // Use backticks for template literals
       width: "6px",
       height: "6px",
-      backgroundColor: "white",
+      backgroundColor: color,
       borderRadius: "50%",
       zIndex: 1000,
     },
@@ -20,7 +20,7 @@ const BlinkingPoint = ({ x, y }) => {
       width: "2px",
       height: "2px",
       borderRadius: "50%",
-      backgroundColor: "white",
+      backgroundColor: color,
       animation: "expandGlow 2s infinite",
     },
   };

@@ -52,6 +52,7 @@
   left: 22vw; /* Use viewport width for better scaling */
   transform: translate(-50%, -50%);
   z-index: 999; /* Place above the PNG */
+  
 }
 
 .atag {
@@ -198,5 +199,75 @@
 @media (max-width: 768px) {
   .responsive-book-stroke {
     width: 22%; /* Adjust width to 22% for smaller screens */
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .atagdex {
+    left: calc(20vw + 10px); /* Adjust for smaller screens */
+  }
+
+  .atag {
+    left: calc(23vw + 10px); /* Adjust for smaller screens */
+  }
+
+  .atag1 {
+    left: calc(26vw + 10px); /* Adjust for smaller screens */
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .atagdex {
+    left: calc(18vw + 10px); /* Further adjust */
+  }
+
+  .atag {
+    left: calc(21vw + 10px); /* Further adjust */
+  }
+
+  .atag1 {
+    left: calc(24vw + 10px); /* Further adjust */
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .atagdex {
+    left: calc(15vw + 10px); /* Further adjust for medium screens */
+  }
+
+  .atag {
+    left: calc(18vw + 10px); /* Further adjust for medium screens */
+  }
+
+  .atag1 {
+    left: calc(21vw + 10px); /* Further adjust for medium screens */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .atagdex {
+    left: calc(12vw + 10px); /* Adjust for mobile screens */
+  }
+
+  .atag {
+    left: calc(14vw + 10px); /* Adjust for mobile screens */
+  }
+
+  .atag1 {
+    left: calc(16vw + 10px); /* Adjust for mobile screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .atagdex {
+    left: calc(10vw + 10px); /* Further adjust for very small screens */
+  }
+
+  .atag {
+    left: calc(12vw + 10px); /* Further adjust for very small screens */
+  }
+
+  .atag1 {
+    left: calc(14vw + 10px); /* Further adjust for very small screens */
   }
 }

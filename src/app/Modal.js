@@ -15,7 +15,15 @@ const Modal = ({ isOpen, onClose, Heading, Text }) => {
             style={styles.closeIcon}
             onClick={onClose}
           />
-          <h1>{Heading}</h1>
+          <img
+            src="/assets/t3.png"
+            style={{
+              width: "25%", // Make sure the image fits inside the div
+              height: "20%",
+              objectFit: "cover",
+              marginLeft:'40.5%'
+            }}
+          />
           <hr />
           {questions.map((question, index) => (
             <div key={index} style={{ padding: 10 }}>
@@ -72,7 +80,15 @@ const Modal = ({ isOpen, onClose, Heading, Text }) => {
             onClick={onClose}
           />
           
-          <h1>{Heading}</h1>
+          <img
+            src={Heading === "Games"? "/assets/t6.png":"/assets/t4.png"}
+            style={{
+              width: "25%", // Make sure the image fits inside the div
+              height: "25%",
+              objectFit: "cover",
+              marginLeft:'40.5%'
+            }}
+          />
           <hr />
 
           <p
@@ -100,7 +116,21 @@ const Modal = ({ isOpen, onClose, Heading, Text }) => {
           style={styles.closeIcon}
           onClick={onClose}
         />
-        <h1>{Heading}</h1>
+         <img
+           src={
+    Heading === 'Presale' 
+      ? '/assets/t2.png' 
+      : Heading === 'Games' 
+        ? '/assets/t6.png' 
+        : '/assets/t1.png'
+  } 
+            style={{
+              width: "25%", // Make sure the image fits inside the div
+              height: "25%",
+              objectFit: "cover",
+              marginLeft:'40.5%'
+            }}
+          />
         <hr />
 
         <p
