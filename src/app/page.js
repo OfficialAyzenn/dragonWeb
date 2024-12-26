@@ -200,7 +200,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           transform: "translate(-50%, -50%)",
           width: "8%", // Adjust size if needed
           transition: "all 0.3s ease-in-out",
-          zIndex: 5, // Place behind the GIF
+          zIndex: 10, // Place behind the GIF
 
           pointerEvents: "none",
         }}
@@ -237,6 +237,24 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
       >
         <BlinkingPoint color="black" />
       </div>
+
+      {/* BlackSnake */}
+      <div
+        style={{
+          position: "absolute",
+          top: "87%",
+          left: "54%",
+          transform: "translate(-50%, -50%)",
+          width: "8%", // Adjust size if needed
+          transition: "all 0.3s ease-in-out",
+          zIndex: 10, // Place behind the GIF
+
+          pointerEvents: "none",
+        }}
+      >
+        <BlinkingPoint color="Pink" />
+      </div>
+
       <div
         style={{
           position: "absolute",
